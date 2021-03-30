@@ -12,27 +12,16 @@ Comment.init(
             autoIncrement: true,
         },
           //create comment text
+          message: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
 
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-              model: 'user',
-              key: 'id',
-            },
-        },
-        blogPost_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'blogpost',
-                key: 'id',
-            },
-        }
     },
     {
         sequelize,
@@ -42,3 +31,5 @@ Comment.init(
         modelName: 'comment',
     },
 )
+
+module.exports = Comment;

@@ -22,6 +22,16 @@ Comment.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
+        commentTag_id: {
+            type: DataTypes.INTEGER,
+            allowNull: fase,
+            references: {
+                model: 'commentTag',
+                key: 'id',
+                unique: false
+            }
+        }
+
     },
     {
         sequelize,

@@ -11,7 +11,21 @@ BlogPost.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        //how to store an entire message
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
+        // published: {
+        //     type: DataTypes.BOOLEAN,
+        //     defaultValue: false
+        // },
+
+        //the message left by the user
+        message: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,

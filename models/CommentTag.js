@@ -11,6 +11,7 @@ CommentTag.init(
             primaryKey: true,
             autoIncrement: true,
           },
+          //who wrote the comment
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -19,6 +20,7 @@ CommentTag.init(
                 unique: true,
             }
         },
+        //what blog post the comment is attatched to
         blogPost_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -36,3 +38,6 @@ CommentTag.init(
         modelName: 'product_tag'
       }
 )
+
+
+module.exports = CommentTag;

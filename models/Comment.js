@@ -22,13 +22,22 @@ Comment.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        commentTag_id: {
+        blogPost_id: {
             type: DataTypes.INTEGER,
             allowNull: fase,
             references: {
-                model: 'commentTag',
+                model: 'blogpost',
                 key: 'id',
-                unique: false
+                unique: true,
+            }
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: fase,
+            references: {
+                model: 'user',
+                key: 'id',
+                unique: true,
             }
         }
 

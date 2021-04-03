@@ -1,26 +1,22 @@
 [
     {
-        "id": 1,
         "title": "I love Honey",
         "message": "I am a little bee and I love to eat honey. I usually stay on Frankie's cheeck because there is a lot of honey there. Yum Yum. I also have a family but I will tell you about that some other time. Frankie is my best friend because he is so much fun to be around.",
         "user_id": 4
     },
     {
-        "id": 2,
         "title": "I am a stinky cat",
         "message": "My name is Sven and I am a stinky cat. Mostly I like to sit by the window and smell the air to see if I can smell any other cats. If I can then I make a lot of noise because they need to know I am stinky. I like to eat stinky tuna treats and stinky chimkins. Yum Yum. I also like lots of pets and sleeping in the sun.",
         "user_id": 2
     },
     {
-        "id": 3,
         "title": "Tiny Guy",
         "message": "I am a little baby and I love to eat milk. I can also make noises that sound like a baby elephant. I like to sleep next to daDa because we watch GOT together.",
         "user_id": 1
     },
     {
-        "id": 4,
         "title": "Frankie 'Pooh' Splashes",
         "message": "I am a free spirit who enjoys poetry, pooh bear and the company of my friend, Woosie, (Woosie is pretend, and he is not real. He is a bee that lives on my cheeck because that is where the honey is). I also enjoy riding my bike, going on walks with family and watching pooh bear with Woosie.",
-        "user_id": 1
+        "user_id": 3
     }
 ]

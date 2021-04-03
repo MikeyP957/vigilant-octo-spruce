@@ -32,7 +32,7 @@ BlogPost.init(
             defaultValue: DataTypes.NOW,
         },
         user_id: {
-            type: DataTypes.INETGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
@@ -44,7 +44,7 @@ BlogPost.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName:'project',
+        modelName:'blogPost',
     }
 )
 

@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name":"Theodore J",
+        "email":"littleguy@baby.com",
+        "password":"iAmSoTiny"
+    },
+    {
+        "id": 2,
+        "name":"Sven",
+        "email":"stinkyCat@cat.com",
+        "password":"iAmSoStinky"
+    },
+    {
+        "id": 3,
+        "name":"Frankie",
+        "email":"PoohBear@CR.com",
+        "password":"iLoveHoney"
+    },
+    {
+        "id": 4,
+        "name":"Woosie",
+        "email":"aLittleBee@cheek.com",
+        "password":"onFranksCheek"
+    }
+]

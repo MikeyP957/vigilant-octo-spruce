@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const { User, BlogPost, Comment } = require('../models');
+const { BlogPost, User} = require('../models');
 const withAuth = require('../utils/auth');
 
-
+//get all the blog posts on the /api route if logged in
 router.get('/', async (req, res) => {
     try{
         const blogPostData = await BlogPost.findAll({
             include: [
                 {
-                    model:User,
-                    attributes: ['name']
-                }
-            ]
+                  model: User,
+                  attributes: ['name'],
+                },
+            ],
         });
 
         // Serialize data so the template can read it
@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 })
+//this gets a single blog post by id, must be logged in
 router.get('/blogPost/:id', async (req, res) => {
     try{
         const blogPostData = await BlogPost.findByPk(req.params.id, {
@@ -34,7 +35,7 @@ router.get('/blogPost/:id', async (req, res) => {
                     model: User,
                     attributes: ['name'],
                 },
-                //and comments..?
+                //and comments here..?
             ]
         });
 
@@ -48,6 +49,8 @@ router.get('/blogPost/:id', async (req, res) => {
         res.status(500).json(err);
     }
 })
+
+//this gets the user profile, with authorization and hides password
 router.get('/profile', withAuth, async (req, res) => {
     try{
         const userData = await User.findByPk(req.session.user_id, {
@@ -74,3 +77,5 @@ router.get('/login', async (req, res) => {
 
   res.render('login');
 })
+
+module.exports = router;

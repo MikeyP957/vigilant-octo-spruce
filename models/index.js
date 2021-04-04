@@ -4,13 +4,15 @@ const BlogPost = require('./BlogPost');
 
 
 //Blog Post belongs to a user, and a user has many blog posts, linked by user_id on blogPost
+User.hasMany(BlogPost, {
+    foreignKey: 'user_id',
+});
+
 BlogPost.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-User.hasMany(BlogPost, {
-    foreignKey: 'user_id',
-});
+
 
 // Comment.belongsTo(User, {
 //     foreignKey: 'user_id'

@@ -16,12 +16,6 @@ BlogPost.init(
             allowNull: false,
         },
 
-        // published: {
-        //     type: DataTypes.BOOLEAN,
-        //     defaultValue: false
-        // },
-
-        //the message left by the user
         message: {
             type: DataTypes.TEXT,
             allowNull: false
@@ -44,7 +38,7 @@ BlogPost.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName:'blogPost',
+        modelName:'blogpost',
     }
 )
 

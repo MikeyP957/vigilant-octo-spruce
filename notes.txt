@@ -1,0 +1,32 @@
+pages to render:
+    login
+        form
+    sign up
+        form 
+    dashboard/ profile
+        - all your posts
+        -create a post
+        - edit a post
+    view blog posts
+        -view created blog posts
+            include author, date, title
+        -when clicked view message and comments
+
+routes to make:
+    GET
+        -user name, blog posts written 
+        -each blog post with the author and date
+        -blog post by id and each comment(with author and date)
+
+    POST
+        -from the front end from a form and js
+        -blog posts
+        -comments
+
+    DELETE
+        -with authentication
+        -blog posts, cascade comments
+        -comments
+
+
+I need to go through the code and get everything "running" for just users... then expand

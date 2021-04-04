@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A very interesting Blog!</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1>
+                <a href= '/'>Home</a>
+            </h1>
+            <nav>
+                {{!-- Conditionally render login or logout in the navbar --}}
+                {{#if logged_in}}
+                <a href='/profile'>profile</a>
+                <button class='no-button' id='logout'>logout</button>
+                {{else}}
+                <a href='/login'>login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main class='container container-fluid'>
+            {{!-- Render sub layout --}}
+            {{{body}}}
+        </main>
+    </div>
+    {{#if logged_in}}
+    <scirpt src='/js/logout.js'></scirpt>
+    {{/if}}
+</body>
+
+</html>

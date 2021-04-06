@@ -1,6 +1,49 @@
 const router = require('express').Router();
-const { BlogPost } = require('../../models');
+const { BlogPost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.get('/', async (req, res) => {
+    
+  try{
+    const blogPostData = await BlogPost.findAll(
+      {
+        include: [
+            {
+                model: User,
+                attributes: ['name']
+            },
+        ]
+      }
+    );
+    res.status(200).json(blogPostData);
+  } catch(err) {
+    res.status(500).json(err)
+  }
+  
+  });
+  
+  // get one BlogPost
+  router.get('/:id', async (req, res) => {
+
+    try{
+      const blogPostData = await BlogPost.findByPk(req.params.id, {
+        include: [
+            {
+              model: User,
+              attributes: ['name']
+            
+            },
+        ]
+      });
+      if (!blogPostData) {
+        res.status(404).json({message: 'There is no BlogPost with that Id.'})
+      }
+  
+      res.status(200).json(blogPostData)
+    } catch(err) {
+      res.status(500).json(err)
+    }
+  });
 
 router.post('/', withAuth, async (req, res) => {
     try{

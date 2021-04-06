@@ -15,13 +15,13 @@
             <h1>
                 <a href= '/'>Home</a>
             </h1>
-            <nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 {{!-- Conditionally render login or logout in the navbar --}}
                 {{#if logged_in}}
-                <a href='/profile'>profile</a>
-                <button class='no-button' id='logout'>logout</button>
+                <a class="navbar-brand" href='/profile'>profile</a>
+                <button class=' navbar-brand no-button' id='logout'>logout</button>
                 {{else}}
-                <a href='/login'>login</a>
+                <a class="navbar-brand" href='/login'>login</a>
                 {{/if}}
             </nav>
         </header>

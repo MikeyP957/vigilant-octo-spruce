@@ -1,0 +1,47 @@
+body{
+    margin:20px;
+    background-color: darkslateblue;
+    
+}
+nav {
+    margin: 20px
+}
+nav.a {
+    margin-left: 15px;
+    margin-right: 15px;
+    color:blue
+}
+
+.blogP {
+    background-color: aliceblue;
+}
+.create-form{
+    padding: 20px;
+    background-color:aliceblue;
+    margin-bottom: 35px;
+}
+.eachPost {
+    padding: 20px;
+    background-color:aliceblue;
+    margin: 15px;
+}
+.welcome{
+    color:ivory
+}
+.yourBlogs{
+    margin-left: 20px;
+}
+  .no-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #1b89bc;
+    text-decoration: none;
+    font-size: 100%;
+  }
+  
+  .no-button:hover {
+    color: #065b83;
+    text-decoration: underline;
+  }

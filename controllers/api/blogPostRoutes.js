@@ -23,27 +23,27 @@ router.get('/', async (req, res) => {
   });
   
   // get one BlogPost
-  router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
 
     try{
-      const blogPostData = await BlogPost.findByPk(req.params.id, {
+        const blogPostData = await BlogPost.findByPk(req.params.id, {
         include: [
             {
-              model: User,
-              attributes: ['name']
+                model: User,
+                attributes: ['name']
             
             },
         ]
-      });
-      if (!blogPostData) {
-        res.status(404).json({message: 'There is no BlogPost with that Id.'})
-      }
-  
-      res.status(200).json(blogPostData)
-    } catch(err) {
-      res.status(500).json(err)
+        });
+    if (!blogPostData) {
+    res.status(404).json({message: 'There is no BlogPost with that Id.'})
     }
-  });
+
+        res.status(200).json(blogPostData)
+    } catch(err) {
+        res.status(500).json(err)
+    }
+});
 
 router.post('/', withAuth, async (req, res) => {
     try{

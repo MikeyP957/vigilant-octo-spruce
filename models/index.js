@@ -13,22 +13,21 @@ BlogPost.belongsTo(User, {
 });
 
 
-
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+});
 Comment.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-User.hasMany(Comment, {
-    foreignKey: 'user_id',
-});
-
 // A blog post can have many comments, which are linked with the commentTag, CommentTag has a user_id and blogPost_id
-Comment.belongsTo(BlogPost, {
-    foreignKey: 'blogPost_id',
-});
+
 
 BlogPost.hasMany(Comment, {
-    foreignKey: 'blogpost_id'
+    foreignKey: 'blogPost_id'
+});
+Comment.belongsTo(BlogPost, {
+    foreignKey: 'blogPost_id',
 });
 
 

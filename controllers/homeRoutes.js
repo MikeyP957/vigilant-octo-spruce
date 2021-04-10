@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogPost, User} = require('../models');
+const { BlogPost, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
 //get all the blog posts on the /api route if logged in
@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 })
+
 //this gets a single blog post by id, must be logged in
 router.get('/blogPost/:id', async (req, res) => {
     try{
@@ -35,12 +36,20 @@ router.get('/blogPost/:id', async (req, res) => {
                     model: User,
                     attributes: ['name'],
                 },
-                //and comments here..?
+                {
+                    model: Comment,
+                    include: [
+                        {model: User}
+                    ]
+                }
             ]
         });
 
-        const blogPost = blogPostData.get({plain : true});
 
+        const blogPost = blogPostData.get({plain : true});
+        console.log("*********************************")
+console.log('blogPost,', blogPost)
+console.log("*********************************")
         res.render('blogPost', {
             ...blogPost,
             logged_in: req.session.logged_in
@@ -49,6 +58,8 @@ router.get('/blogPost/:id', async (req, res) => {
         res.status(500).json(err);
     }
 })
+
+
 
 //this gets the user profile, with authorization and hides password
 router.get('/profile', withAuth, async (req, res) => {

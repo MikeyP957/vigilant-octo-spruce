@@ -1,40 +1,44 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
-
+console.log('Clicked')
     const message = document.querySelector('#message-input').value.trim();
-
-    if(message) {
+    const blogPost_id = event.currentTarget.getAttribute('post-id');
+console.log(message, "message")
+console.log(blogPost_id, "BP")
+    if(message && blogPost_id) {
         const response = await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({ message }),
+            body: JSON.stringify({ message, blogPost_id }),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-
+        console.log(message, blogPost_id, 'message and id')
+console.log(response, 'response!')
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace(`/blogPost/${blogPost_id}`);
         } else {
             alert('Failed to create comment');
         }
     }
 };
-const delButtonHandler = async (event) => {
-    event.preventDefault();
-    if(event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+// const delButtonHandler = async (event) => {
+//     event.preventDefault();
+//     if(event.target.hasAttribute('data-id')) {
+//         const id = event.target.getAttribute('data-id');
 
-        const response = await fetch(`/api/comments/${id}`, {
-            method:'DELETE',
-        });
+//         const response = await fetch(`/api/comments/${id}`, {
+//             method:'DELETE',
+//         });
 
-        if (response.ok) {
-            document.location.replace('/profile');
-        } else {
-            alert('Failed to delete comment')
-        }
-    }
-};
+//         if (response.ok) {
+//             document.location.replace('/profile');
+//         } else {
+//             alert('Failed to delete comment')
+//         }
+//     }
+// };
+
 
 document
     .querySelector('.new-comment-form')

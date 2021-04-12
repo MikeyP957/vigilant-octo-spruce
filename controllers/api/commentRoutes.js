@@ -3,41 +3,41 @@ const { Comment, BlogPost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.get('/', async (req, res) => {
-  try{
-      const commentData = await Comment.findAll(
-          {
-            include: [
-                {model: User},
-                {model: BlogPost}
-            ]
-          }
-        );
-        res.status(200).json(commentData);
-  } catch(err) {
-      res.status(500).json(err)
-    }
-})
-router.get('/:id', async (req, res) => {
-  try{
-    const commentData = await Comment.findByPk(req.params.id,
-        {
-          include: [
-              {model: User},
-              {model: BlogPost}
-          ]
-        }
-      );
+// router.get('/', async (req, res) => {
+//   try{
+//       const commentData = await Comment.findAll(
+//           {
+//             include: [
+//                 {model: User},
+//                 {model: BlogPost}
+//             ]
+//           }
+//         );
+//         res.status(200).json(commentData);
+//   } catch(err) {
+//       res.status(500).json(err)
+//     }
+// })
+// router.get('/:id', async (req, res) => {
+//   try{
+//     const commentData = await Comment.findByPk(req.params.id,
+//         {
+//           include: [
+//               {model: User},
+//               {model: BlogPost}
+//           ]
+//         }
+//       );
 
-    if (!commentData) {
-      res.status(404).json({message: 'There is no comment with that Id.'})
-    }
+//     if (!commentData) {
+//       res.status(404).json({message: 'There is no comment with that Id.'})
+//     }
 
-    res.status(200).json(commentData);
-  } catch(err) {
-    res.status(500).json(err)
-    }
-})
+//     res.status(200).json(commentData);
+//   } catch(err) {
+//     res.status(500).json(err)
+//     }
+// })
 router.post('/', withAuth, async (req,res) => {
   try{
       const newComment = await Comment.create({
@@ -45,7 +45,7 @@ router.post('/', withAuth, async (req,res) => {
         ...req.body,
         user_id: req.session.user_id,
       })
-  res.status(200).json()
+  res.status(200).json(newComment)
   } catch(err) 
   {
     res.status(500).json(err)

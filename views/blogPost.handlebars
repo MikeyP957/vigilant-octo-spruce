@@ -13,22 +13,25 @@
         <p>{{comment.message}}</p>
         <p>{{comment.user.name}}, {{format_date comment.date_created}}</p>
     </div>
+            <div class="col-md-4">
+          <button class="btn btn-sm btn-danger" data-id="{{user.id}}">DELETE</button>
+        </div>
     {{/each}}
 
 </div>
 
 <div class='add-comment'>
     
-        <form class='form new-comment-form' post-id= "{{id}}">
+    <form class='form new-comment-form' post-id= "{{id}}">
 
-            <div class="form-group">
-                <label for="message-input">Message</label>
-                <textarea class="form-control" id="message-input" rows="2"></textarea>
-            </div>
-                <div class="form-group">
-                <button type="submit" class="btn btn-primary">Comment</button>
-            </div>
-        </form>
+        <div class="form-group">
+            <label for="message-input">Message</label>
+            <textarea class="form-control" id="message-input" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+            <button id="delete-btn" type="submit" class="btn btn-primary" >Comment</button>
+        </div>
+    </form>
 </div>
 
 <script src="/js/comment.js"></script> 

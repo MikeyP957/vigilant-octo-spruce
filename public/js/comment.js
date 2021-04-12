@@ -1,8 +1,10 @@
+
+
 const newFormHandler = async (event) => {
     event.preventDefault();
 console.log('Clicked')
     const message = document.querySelector('#message-input').value.trim();
-    const blogPost_id = event.currentTarget.getAttribute('post-id');
+    
 console.log(message, "message")
 console.log(blogPost_id, "BP")
     if(message && blogPost_id) {
@@ -22,28 +24,12 @@ console.log(response, 'response!')
         }
     }
 };
-// const delButtonHandler = async (event) => {
-//     event.preventDefault();
-//     if(event.target.hasAttribute('data-id')) {
-//         const id = event.target.getAttribute('data-id');
 
-//         const response = await fetch(`/api/comments/${id}`, {
-//             method:'DELETE',
-//         });
-
-//         if (response.ok) {
-//             document.location.replace('/profile');
-//         } else {
-//             alert('Failed to delete comment')
-//         }
-//     }
-// };
+ 
 
 
 document
     .querySelector('.new-comment-form')
     .addEventListener('submit', newFormHandler);
     
-// document
-//     .querySelector('.comment-list')
-//     .addEventListener('click', delButtonHandler);
+ 
